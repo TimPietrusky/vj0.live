@@ -46,7 +46,7 @@ export default function Document() {
           property="og:description"
           content="vj0.live is a web-based tool that lets you generate live visual experiences using only simple prompts."
         />
-        <meta property="og:image" content="/preview.png" />
+        <meta property="og:image" content="/preview2.png" />
         <meta property="og:url" content="https://vj0.live" />
         <meta property="og:type" content="website" />
 
@@ -60,7 +60,7 @@ export default function Document() {
           name="twitter:description"
           content="vj0.live is a web-based tool that lets you generate live visual experiences using only simple prompts."
         />
-        <meta name="twitter:image" content="/preview.png" />
+        <meta name="twitter:image" content="/preview2.png" />
         <meta name="twitter:site" content="@vj0live" />
       </Head>
       <body>
