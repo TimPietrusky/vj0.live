@@ -20,9 +20,16 @@ export const metadata: Metadata = {
         url: `${SITE_URL}/preview2.png`,
         width: 1024,
         height: 1024,
-        alt: "A screenshot of vj0 with a generated waveform in the center and the nav in the bottom",
+        alt: "a screenshot of vj0 with a generated waveform in the center and the nav in the bottom",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "vj0",
+    description: "generate live visual experiences with simple prompts",
+    images: [`${SITE_URL}/preview2.png`],
+    creator: "@vj0live",
   },
 };
 
