@@ -19,12 +19,17 @@ const HelpPanel: React.FC<HelpPanelProps> = ({ isOpen, onClose }) => {
 
   return (
     <div
-      className={`fixed top-0 right-0 bottom-0 w-96 bg-gray-900/70 text-white transform transition-transform duration-300 ease-in-out ${
+      className={`fixed top-0 right-0 bottom-0 ${
+        // Full width on small screens, fixed width on larger screens
+        "w-full sm:w-96"
+      } bg-gray-900 text-white transform transition-transform duration-300 ease-in-out ${
         isOpen ? "translate-x-0" : "translate-x-full"
       } overflow-y-auto z-20`}
     >
       <div className="p-6 space-y-6 pb-20">
-        <h2 className="text-3xl font-bold mb-4 text-cyan-400">Help</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-cyan-400">
+          Help
+        </h2>
         <nav className="mb-6">
           <ul className="space-y-2">
             {sections.map((section) => (
@@ -47,7 +52,7 @@ const HelpPanel: React.FC<HelpPanelProps> = ({ isOpen, onClose }) => {
         <div className="space-y-6">
           {activeSection === "description" && (
             <section>
-              <h3 className="text-2xl font-semibold mb-2 text-cyan-300">
+              <h3 className="text-xl sm:text-2xl font-semibold mb-2 text-cyan-300">
                 What is vj0?
               </h3>
               <p className="text-gray-300 mb-4">
@@ -71,7 +76,7 @@ const HelpPanel: React.FC<HelpPanelProps> = ({ isOpen, onClose }) => {
           )}
           {activeSection === "features" && (
             <section>
-              <h3 className="text-2xl font-semibold mb-2 text-cyan-300">
+              <h3 className="text-xl sm:text-2xl font-semibold mb-2 text-cyan-300">
                 Key Features
               </h3>
               <ul className="list-disc list-inside space-y-2 text-gray-300">
@@ -83,6 +88,7 @@ const HelpPanel: React.FC<HelpPanelProps> = ({ isOpen, onClose }) => {
                   Sleek, full-screen canvas for distraction-free creativity
                 </li>
                 <li>Browser-based for easy access and setup</li>
+                <li>Dynamic animations and colorful patterns</li>
                 <li>
                   Suitable for various settings: parties, performances, art
                   exploration
@@ -92,18 +98,18 @@ const HelpPanel: React.FC<HelpPanelProps> = ({ isOpen, onClose }) => {
           )}
           {activeSection === "quickstart" && (
             <section>
-              <h3 className="text-2xl font-semibold mb-2 text-cyan-300">
+              <h3 className="text-xl sm:text-2xl font-semibold mb-2 text-cyan-300">
                 Quick Start Guide
               </h3>
               <ol className="list-decimal list-inside space-y-2 text-gray-300">
                 <li>Click the microphone icon to enable audio input.</li>
-                <li>More coming soon...</li>
+                <li>More coming soon.</li>
               </ol>
             </section>
           )}
           {activeSection === "github" && (
             <section>
-              <h3 className="text-2xl font-semibold mb-2 text-cyan-300">
+              <h3 className="text-xl sm:text-2xl font-semibold mb-2 text-cyan-300">
                 GitHub
               </h3>
               <p className="mb-2 text-gray-300">
@@ -122,15 +128,23 @@ const HelpPanel: React.FC<HelpPanelProps> = ({ isOpen, onClose }) => {
           )}
           {activeSection === "legal" && (
             <section>
-              <h3 className="text-2xl font-semibold mb-2 text-cyan-300">
+              <h3 className="text-xl sm:text-2xl font-semibold mb-2 text-cyan-300">
                 Legal Information
               </h3>
               <p className="mb-2 text-gray-300">
-                founder mode since September 2024.
+                vj0 Project, founded September 2024. All rights reserved.
               </p>
               <p className="mb-2 text-gray-300">
                 vj0 is released under the GNU Affero General Public License v3
                 (AGPL-3.0).
+              </p>
+              <p className="mb-2 text-gray-300">
+                Disclaimer: vj0 is provided "as is" without warranty of any
+                kind, express or implied. Use at your own risk.
+              </p>
+              <p className="text-gray-300">
+                For full legal terms and conditions, please refer to the
+                documentation in the GitHub repository.
               </p>
             </section>
           )}

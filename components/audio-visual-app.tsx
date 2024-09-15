@@ -183,90 +183,94 @@ export function AudioVisualAppComponent() {
   return (
     <div className="relative h-screen w-screen overflow-hidden bg-gray-900 font-sans">
       <canvas ref={canvasRef} className="absolute inset-0" />
-      <div className="absolute inset-0 pointer-events-none z-10">
-        <div className="absolute top-4 left-4 w-32 h-32 border-t-2 border-l-2 border-cyan-400 opacity-50"></div>
-        <div className="absolute top-4 right-4 w-32 h-32 border-t-2 border-r-2 border-cyan-400 opacity-50"></div>
-        <div className="absolute bottom-4 left-4 w-32 h-32 border-b-2 border-l-2 border-cyan-400 opacity-50"></div>
-        <div className="absolute bottom-4 right-4 w-32 h-32 border-b-2 border-r-2 border-cyan-400 opacity-50"></div>
+      <div className="absolute top-4 right-4 z-20 bg-gray-800 text-white px-3 py-1 rounded-full text-sm font-light">
+        Public Alpha
       </div>
-      <div className="absolute bottom-10 left-4 right-4 z-30">
-        <div className="mx-auto max-w-4xl border-t-3 border-cyan-400">
+      <div className="absolute bottom-0 left-0 right-0 z-30 bg-gray-900">
+        <div className="mx-auto max-w-full sm:max-w-4xl border-t-3 border-cyan-400">
           <form
             onSubmit={handlePromptSubmit}
-            className="flex items-center px-4 py-2"
+            className="flex items-center px-2 py-2 space-x-2"
           >
-            <div className="w-auto h-12 flex items-center justify-center px-3 mr-2">
+            <div className="flex items-center justify-center px-1">
               <span className="text-cyan-400 font-bold text-xl">
                 VJ<span className="font-mono">0</span>
               </span>
             </div>
-            <div className="relative flex-grow mr-2">
+            <div className="relative flex-grow flex items-center">
               <input
                 type="text"
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
                 placeholder="Be creative..."
-                className="w-full rounded-full bg-gray-800/50 px-6 py-3 text-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-300 ease-in-out"
+                className="w-full rounded-l-full bg-gray-800/50 px-4 py-2 text-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-300 ease-in-out"
               />
+              <button
+                type="submit"
+                className="rounded-r-full bg-cyan-600 px-4 py-2 text-white hover:bg-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-300 ease-in-out"
+                style={{ height: "100%", border: "none" }}
+              >
+                <ChevronRight size={24} />
+              </button>
             </div>
-            <button
-              type="submit"
-              className="rounded-full bg-cyan-600 p-3 text-white hover:bg-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-300 ease-in-out"
-            >
-              <ChevronRight size={24} />
-            </button>
-            <button
-              className={`rounded-full p-3 ml-2 transition-all duration-300 ease-in-out ${
-                isListening
-                  ? "bg-cyan-400 text-gray-900"
-                  : "bg-gray-800 text-cyan-400 hover:bg-gray-700"
-              } relative overflow-hidden`}
-              onClick={toggleAudio}
-              aria-label={isListening ? "Stop listening" : "Start listening"}
-              style={{
-                boxShadow: isListening
-                  ? "0 0 0 2px rgba(6, 182, 212, 0.5)"
-                  : "none",
-              }}
-            >
-              <Mic size={24} className="relative z-10" />
-              {isListening && (
-                <span
-                  className="absolute inset-0 bg-cyan-400 opacity-20"
-                  style={{
-                    animation: "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-                  }}
-                ></span>
-              )}
-            </button>
-            <button
-              className={`rounded-full p-3 ml-2 transition-all duration-300 ease-in-out ${
-                isHelpOpen
-                  ? "bg-cyan-400 text-gray-900"
-                  : "bg-gray-800 text-cyan-400 hover:bg-gray-700"
-              } relative overflow-hidden`}
-              onClick={toggleHelp}
-              aria-label={isHelpOpen ? "Close help" : "Open help"}
-              style={{
-                boxShadow: isHelpOpen
-                  ? "0 0 0 2px rgba(6, 182, 212, 0.5)"
-                  : "none",
-              }}
-            >
-              {isHelpOpen ? (
-                <X size={24} className="relative z-10" />
-              ) : (
-                <HelpCircle size={24} className="relative z-10" />
-              )}
-              {isHelpOpen && (
-                <span
-                  className="absolute inset-0 bg-cyan-400 opacity-20"
-                  style={{
-                    animation: "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-                  }}
-                ></span>
-              )}
-            </button>
+            <div className="flex space-x-2">
+              <button
+                type="button"
+                className={`rounded-full p-2 transition-all duration-300 ease-in-out ${
+                  isListening
+                    ? "bg-cyan-400 text-gray-900"
+                    : "bg-gray-800 text-cyan-400 hover:bg-gray-700"
+                } relative overflow-hidden`}
+                onClick={toggleAudio}
+                aria-label={isListening ? "Stop listening" : "Start listening"}
+                style={{
+                  boxShadow: isListening
+                    ? "0 0 0 2px rgba(6, 182, 212, 0.5)"
+                    : "none",
+                }}
+              >
+                <Mic size={24} className="relative z-10" />
+                {isListening && (
+                  <span
+                    className="absolute inset-0 bg-cyan-400 opacity-20"
+                    style={{
+                      animation:
+                        "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+                    }}
+                  ></span>
+                )}
+              </button>
+              <button
+                type="button"
+                className={`rounded-full p-2 transition-all duration-300 ease-in-out ${
+                  isHelpOpen
+                    ? "bg-cyan-400 text-gray-900"
+                    : "bg-gray-800 text-cyan-400 hover:bg-gray-700"
+                } relative overflow-hidden`}
+                onClick={toggleHelp}
+                aria-label={isHelpOpen ? "Close help" : "Open help"}
+                style={{
+                  boxShadow: isHelpOpen
+                    ? "0 0 0 2px rgba(6, 182, 212, 0.5)"
+                    : "none",
+                }}
+              >
+                {isHelpOpen ? (
+                  <X size={24} className="relative z-10" />
+                ) : (
+                  <HelpCircle size={24} className="relative z-10" />
+                )}
+                {isHelpOpen && (
+                  <span
+                    className="absolute inset-0 bg-cyan-400 opacity-20"
+                    style={{
+                      animation:
+                        "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+                    }}
+                  ></span>
+                )}
+              </button>
+            </div>
           </form>
         </div>
       </div>
