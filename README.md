@@ -1,14 +1,27 @@
-# Vercel AI SDK RAG Guide Starter Project
+# vj0.live
 
-This is the starter project for the Vercel AI SDK [Retrieval-Augmented Generation (RAG) guide](https://sdk.vercel.ai/docs/guides/rag-chatbot).
+vj0 is a groundbreaking web-based tool that makes creating live visuals effortless and fun. Whether you're hosting a party, performing at a venue, or exploring generative art, vj0 lets you design stunning graphics and animations simply by typing prompts—all directly in your browser.
 
-In this project, you will build a chatbot that will only respond with information that it has within its knowledge base. The chatbot will be able to both store and retrieve information. This project has many interesting use cases from customer support through to building your own second brain!
+## Key Features
 
-This project will use the following stack:
+- **Simple and Intuitive Interface:** Easily navigate and create without a steep learning curve.
+- **No Technical Skills Required:** Perfect for both beginners and experienced users.
+- **Real-Time Dynamic Animations:** Synchronize visuals seamlessly with your audio inputs.
+- **Customizable Visuals:** Change colors, add elements, and tweak effects to match your vision.
+- **Built with Next.js and Vercel:** Ensures a smooth and reliable user experience.
+
+## Getting Started
+
+1. **Connect Your Audio:** Link your audio source to synchronize visuals.
+2. **Enter Your Prompts:** Describe the visuals you want to create.
+3. **Watch vj0 Bring Your Ideas to Life:** Experience vibrant waveforms, colorful patterns, and dynamic animations in real-time.
+
+## Technologies Used
 
 - [Next.js](https://nextjs.org) 14 (App Router)
-- [Vercel AI SDK](https://sdk.vercel.ai/docs)
-- [OpenAI](https://openai.com)
-- [Drizzle ORM](https://orm.drizzle.team)
-- [Postgres](https://www.postgresql.org/) with [ pgvector ](https://github.com/pgvector/pgvector)
-- [shadcn-ui](https://ui.shadcn.com) and [TailwindCSS](https://tailwindcss.com) for styling
+- [Vercel](https://vercel.com) for deployment
+- [TailwindCSS](https://tailwindcss.com) for styling
+
+## License
+
+This project is licensed under the [GNU Affero General Public License v3.0](https://www.gnu.org/licenses/agpl-3.0.en.html).
